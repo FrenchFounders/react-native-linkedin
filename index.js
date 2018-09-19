@@ -203,6 +203,7 @@ export default class LinkedInModal extends React.Component {
     onClose: PropTypes.func,
     onSignIn: PropTypes.func,
     linkText: PropTypes.string,
+    emailField: PropTypes.string,
     renderButton: PropTypes.func,
     renderClose: PropTypes.func,
     containerStyle: ViewPropTypes.style,
@@ -309,7 +310,7 @@ export default class LinkedInModal extends React.Component {
         startInLoadingState
         javaScriptEnabled
         domStorageEnabled
-        injectedJavaScript={injectedJavaScript()}
+        injectedJavaScript={`document.getElementById("session_key-login").value = "${this.props.emailField ? this.props.emailField : ''}";`}
       />
     )
   }
